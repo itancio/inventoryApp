@@ -20,6 +20,52 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## install  mui
+npm install @mui/material @emotion/react @emotion/styled
+
+https://mui.com/material-ui/getting-started/installation/
+
+## install roboto font (mui)
+npm install @fontsource/roboto
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+
+## To Install firebase
+```bash
+npm install firebase
+```
+
+https://firebase.google.com/docs/web/setup?hl=en&authuser=0&_gl=1*iumunu*_ga*Mjg4ODIzMTMxLjE3MjIyODI0OTY.*_ga_CW55HF8NVT*MTcyMjM2ODk0Ni4yLjEuMTcyMjM2OTEzMy4yMi4wLjA.
+
+
+npm install firebase
+
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from "firebase/analytics";
+
+// TODO: Replace the following with your app's Firebase project configuration
+const firebaseConfig = {
+  //...
+};
+
+const app = initializeApp(firebaseConfig);
+
+# Install firestore (database)
+
+
+
+# Add components on the app
+* Box, Typography, 
+[Modal](https://mui.com/material-ui/react-modal/)
+
+# Hiding API keys
+https://www.youtube.com/watch?v=17UVejOw3zA
+
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
