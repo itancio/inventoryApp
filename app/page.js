@@ -10,13 +10,15 @@ import { Box, Stack, Modal, Typography, Button, TextField } from '@mui/material'
 import { firestore } from '@/firebase'
 import { collection, doc, docs, getDocs, query, setDoc, deleteDoc, getDoc} from 'firebase/firestore'
 import { BoxStyles, BoxStyles1, BoxStyles2, InventoryList } from './components/Boxstyles'
-
+import AddCircleOutlineIcon from '@mui/icons-material'
+import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded'
 
 export default function Home() {
   const [inventory, setInventory] = useState([])
+  const db_name = 'inventory'
 
   const updateInventory = async () => {
-    const snapshot = query(collection(firestore, "pantry_db"))
+    const snapshot = query(collection(firestore, db_name))
     const docs = await getDocs(snapshot)
     const inventoryList = []
 
@@ -43,7 +45,7 @@ export default function Home() {
   },[])
 
   const addItem = async (item) => {
-    const docRef = doc(collection(firestore, "Inventory_db"), item)
+    const docRef = doc(collection(firestore, db_name), item)
     const docSnapshot = await getDoc(docRef)
     
     if (docSnapshot.exists()) {
@@ -56,7 +58,7 @@ export default function Home() {
   }
 
   const removeItem = async (item) => {
-    const docRef = doc(collection(firestore, "pantry_db"), item)
+    const docRef = doc(collection(firestore, db_name), item)
     const docSnapshot = await getDoc(docRef)
     if (docSnapshot.exists()) {
       const {quantity} = docSnapshot.data()
@@ -105,12 +107,6 @@ export default function Home() {
           </Stack>
         </Box>
       </Modal>
-      <Button 
-        variant="contained"
-        onClick={() => { handleOpen() }}
-      > 
-        Add New Item
-      </Button>
       <Box
         border={'1px solid #333'}>
         <Box {...BoxStyles2}>
@@ -126,19 +122,29 @@ export default function Home() {
                       <Typography variant='h4' color='333' textAlign='center'>
                           {name}
                       </Typography>
-                      <Box>
+                      <Stack direction='row' spacing= {3}>
+                        <Button variant='contained' onClick={() => removeItem(name)}>
+                          remove
+                        </Button>
                         <Typography variant='h5' color='333' textAlign='center'>
                             {quantity}
                         </Typography>
-                        <Button variant='contained' onClick={() => removeItem}>
-                          Remove
+                        
+                        <Button variant='contained' onClick={() => addItem(name)}>
+                          add
                         </Button>
-                     </Box>
+                     </Stack>
                   </Box>
               );
           })}
         </Stack>
       </Box>
+      <Button 
+        variant="contained"
+        onClick={() => { handleOpen() }}
+      > 
+        Add New Item
+      </Button>
     </Box>
   )
 }
