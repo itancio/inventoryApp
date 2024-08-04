@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Preview to the finish product
+https://inventory-mhykids4r-itancios-projects.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
@@ -66,11 +69,14 @@ const app = initializeApp(firebaseConfig);
 https://www.youtube.com/watch?v=17UVejOw3zA
 
 
-## Deploy to Vercel
+## Deploying a staged production build
 
-First run the build command to deploy:
+On the terminal, Install vercel CLI
 ```bash
-npm run build
+npm i -g vercel
+vercel build
+vercel deploy --prebuilt
+#Deploy the build outputs in .vercel/output produced by vercel build.
 ```
 
 Add, commit, and push to your github repo
