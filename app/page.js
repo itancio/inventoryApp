@@ -1,17 +1,12 @@
 'use client'
 
-import '@fontsource/roboto/300.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
-
-import { useState, useEffect } from 'react'
-import { Box, Stack, Modal, Typography, Button, TextField } from '@mui/material'
-import { firestore } from '@/firebase'
-import { collection, doc, docs, getDocs, query, setDoc, deleteDoc, getDoc} from 'firebase/firestore'
-import { BoxStyles, BoxStyles1, BoxStyles2, InventoryList } from './components/Boxstyles'
-import AddCircleOutlineIcon from '@mui/icons-material'
-import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded'
+import { useState, useEffect } from 'react';
+import { Box, Stack, Modal, Typography, Button, TextField } from '@mui/material';
+import { firestore, openai } from '@/config';
+import { collection, doc, docs, getDocs, query, setDoc, deleteDoc, getDoc} from 'firebase/firestore';
+import { BoxStyles, BoxStyles1, BoxStyles2, InventoryList } from './components/Boxstyles';
+import AddCircleOutlineIcon from '@mui/icons-material';
+import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 
 export default function Home() {
   const [inventory, setInventory] = useState([])

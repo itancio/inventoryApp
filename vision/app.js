@@ -1,12 +1,12 @@
 
 import * as dotenv from 'dotenv'
 import * as path from 'path'
-import OpenAI from 'openai'
+import {openai} from 'config'
 
 // Load environment variables from .env file.
 dotenv.config({ path: path.join(__dirname, '../.env') });
 
-const openai = new OpenAI();
+
 
 const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
