@@ -2,16 +2,21 @@
 
 import { useState, useEffect } from 'react';
 import { Box, Stack, Modal, Typography, Button, TextField } from '@mui/material';
-import { firestore, openai } from '@/config';
+import { firestore, openai} from '@/config';
 import { collection, doc, docs, getDocs, query, setDoc, deleteDoc, getDoc} from 'firebase/firestore';
 import { BoxStyles, BoxStyles1, BoxStyles2, InventoryList } from './components/Boxstyles';
 import AddCircleOutlineIcon from '@mui/icons-material';
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
+import { aiResults  } from '@app'
+import utils from './utils';
 
 export default function Home() {
-  const [inventory, setInventory] = useState([])
-  const db_name = 'inventory'
 
+  const [inventory, setInventory] = useState([])
+
+  // This is the database name on firestore
+  const db_name = 'inventory_db'
+  
   const updateInventory = async () => {
     const snapshot = query(collection(firestore, db_name))
     const docs = await getDocs(snapshot)
@@ -27,6 +32,7 @@ export default function Home() {
     } else {
       // TODO: replace with your own error handling
       console.log('No documents found')
+      console.log(aiResults)
     }
 
     setInventory(inventoryList)

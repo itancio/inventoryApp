@@ -31,7 +31,7 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firestore
 const firestore = getFirestore(app);
 
-// Instantiate openAI API client
+// Initialize openAI API client
 const openai = new OpenAI();
 
 

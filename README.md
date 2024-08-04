@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Preview to the finish product
-https://inventory-mhykids4r-itancios-projects.vercel.app/
+proj-pantry-track.vercel.app
 
 ## Getting Started
 
@@ -87,3 +87,15 @@ Go to vercel website and add your project
 [Source: Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 
+```bash
+python -m venv openai-env
+```
+
+Then activate using this cmd:
+```bash
+source openai-env/bin/activate
+```
+
+## Install the OpenAI Python library
+```bash
+pip install --upgrade openai
