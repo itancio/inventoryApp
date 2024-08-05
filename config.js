@@ -25,13 +25,15 @@ const firebaseConfigLocal = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-let app;
+
 // Initialize Firebase
 if (process.env.$NODE_ENV === 'production') {
   const app = initializeApp(firebaseConfigProduction);
 } else {
   const app = initializeApp(firebaseConfigLocal);
 }
+const app = initializeApp(firebaseConfigLocal)
+
 
 // Initialize Firestore
 const firestore = getFirestore(app);
